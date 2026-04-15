@@ -72,25 +72,23 @@ const breadcrumbs = computed(() => {
   return paths;
 });
 
-function flattenGrid(items: GridItem[], path: string[] = [], startIndex = 1): SearchResultItem[] {
+function flattenGrid(items: GridItem[], path: string[] = [], codePath: number[] = []): SearchResultItem[] {
   const result: SearchResultItem[] = [];
-  let nextIndex = startIndex;
 
   items.forEach((item, index) => {
     const currentPath = [...path, item.label || `网站${index + 1}`];
+    const currentCodePath = [...codePath, index + 1];
     if (item.type === 'url' && item.url) {
       result.push({
         id: item.id,
-        label: item.label || `网站${nextIndex}`,
+        label: item.label || `网站${currentCodePath.join('')}`,
         url: item.url,
-        code: String(nextIndex),
+        code: currentCodePath.join(''),
         path: currentPath,
       });
-      nextIndex += 1;
     } else if (item.type === 'grid' && item.grid) {
-      const childItems = flattenGrid(item.grid, currentPath, nextIndex);
+      const childItems = flattenGrid(item.grid, currentPath, currentCodePath);
       result.push(...childItems);
-      nextIndex += childItems.length;
     }
   });
 
