@@ -1,0 +1,27 @@
+{
+  "name": "nk-quick-start",
+  "version": "2.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "typecheck": "vue-tsc --noEmit",
+    "build": "vue-tsc && vite build",
+    "preview": "vite preview",
+    "clean": "node -e \"const fs=require('fs'); if (fs.existsSync('dist')) fs.rmSync('dist', { recursive: true, force: true })\""
+  },
+  "dependencies": {
+    "vue": "^3.4.21"
+  },
+  "devDependencies": {
+    "@crxjs/vite-plugin": "^2.4.0",
+    "@types/chrome": "^0.1.40",
+    "@types/node": "^25.6.0",
+    "@unocss/preset-uno": "^0.58.5",
+    "@unocss/reset": "^0.58.5",
+    "@vitejs/plugin-vue": "^6.0.6",
+    "typescript": "^5.4.2",
+    "unocss": "^0.58.5",
+    "vite": "^5.1.6",
+    "vue-tsc": "^2.0.6"
+  }
+}

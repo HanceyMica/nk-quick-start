@@ -1,0 +1,35 @@
+{
+  "manifest_version": 3,
+  "name": "九宫格网址跳转",
+  "version": "2.0.0",
+  "description": "支持网格套娃和专家模式的九宫格网址快速跳转扩展",
+  "action": {
+    "default_popup": "index.html",
+    "default_title": "九宫格网址跳转"
+  },
+  "options_page": "options.html",
+  "background": {
+    "service_worker": "src/background.ts",
+    "type": "module"
+  },
+  "permissions": [
+    "storage"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "commands": {
+    "toggle-expert-mode": {
+      "suggested_key": {
+        "default": "Alt+9",
+        "mac": "Command+9"
+      },
+      "description": "切换专家模式"
+    }
+  },
+  "icons": {
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  }
+}
